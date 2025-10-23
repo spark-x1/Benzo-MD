@@ -19,7 +19,7 @@
 
 <br />
 
-<img src="https://img.shields.io/badge/Developer-Professor-purple?style=flat-square&logo=github" />
+<img src="https://img.shields.io/badge/Developer-Amon-purple?style=flat-square&logo=github" />
 <img src="https://img.shields.io/badge/Username-spark--x1-orange?style=flat-square&logo=github" />
 <img src="https://img.shields.io/badge/Multi_Device-Enabled-orange?style=flat-square&logo=android" />
 <img src="https://img.shields.io/badge/License-MIT-yellow?style=flat-square&logo=opensourceinitiative" />
