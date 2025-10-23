@@ -1,88 +1,85 @@
-<!-- BENZO BOT MD README by Amon --><p align="center">
-  <img src="https://o.uguu.se/KntRsfPu.jpg" width="220" style="border-radius:20px;" alt="Benzo_Bot_MD Logo"/>
-</p><h1 align="center">🤖 BENZO_BOT_MD</h1><p align="center">
-  <strong>⚡ Smart WhatsApp Bot by Amon</strong><br>
-  <em>Fast | Stylish | Powerful | Multi-functional</em>
-</p>
----
+# 🤖 Benzo-MD
 
-💫 About
+<div align="center">
 
-Benzo_Bot_MD is a modern WhatsApp bot crafted by Amon, combining automation, downloader tools, and AI-powered features.
-Built for speed, simplicity, and style, Benzo_Bot_MD gives your WhatsApp groups and chats next-level power.
+<a href="https://git.io/typing-svg">
+  <img src="https://readme-typing-svg.demolab.com?font=Ribeye&size=50&pause=1000&color=33ff00&center=true&width=910&height=100&lines=Benzo-MD;Multi+Device+Whatsapp+Bot;Coded+By+Professor" alt="Typing SVG" />
+</a>
 
+<br />
 
----
+<img src="https://o.uguu.se/KntRsfPu.jpg" alt="Benzo-MD" height="300">
 
-⚙️ Session Setup
+<br />
 
-🔗 Generate Session ID:
-👉 spark-pair.onrender.com/pair
+<img src="https://img.shields.io/badge/Version-2.0.0-blue?style=for-the-badge&logo=github" />
+<img src="https://img.shields.io/badge/Baileys-MD-green?style=for-the-badge&logo=whatsapp" />
+<img src="https://img.shields.io/badge/Node.js-18%2B-success?style=for-the-badge&logo=nodedotjs" />
+<img src="https://img.shields.io/badge/Status-Active-brightgreen?style=for-the-badge" />
 
-Then place your Base64 session string in:
+<br />
 
-session/creds.json
+<img src="https://img.shields.io/badge/Developer-Professor-purple?style=flat-square&logo=github" />
+<img src="https://img.shields.io/badge/Username-spark--x1-orange?style=flat-square&logo=github" />
+<img src="https://img.shields.io/badge/Multi_Device-Enabled-orange?style=flat-square&logo=android" />
+<img src="https://img.shields.io/badge/License-MIT-yellow?style=flat-square&logo=opensourceinitiative" />
 
-> Credit: OfficialKango session ID generator
-
-
-
+</div>
 
 ---
 
-🚀 Features
+## 🚀 Quick Deployment
 
-✅ YouTube / TikTok / Instagram / Facebook Downloaders
+### Step 1: Fork Repository
+<div align="center">
+  <a href="https://github.com/spark-x1/Benzo-MD/fork">
+    <img src="https://img.shields.io/badge/Fork-Repository-blue?style=for-the-badge" alt="Fork Repository"/>
+  </a>
+</div>
 
-✅ Auto Bio + Auto React
+### Step 2: Generate Session
+<div align="center">
+  <a href="https://spark-pair.onrender.com/pair" target="_blank">
+    <img src="https://img.shields.io/badge/Generate-Session_ID-success?style=for-the-badge" alt="Generate Session"/>
+  </a>
+</div>
 
-✅ Anti-Delete & Anti-ViewOnce
-
-✅ Stylish Help Menu (with image replies)
-
-✅ Fast, Stable, and Customizable
-
-
-
----
-
-📸 Preview
-
-<p align="center">
-  <img src="https://o.uguu.se/KntRsfPu.jpg" width="400" alt="Benzo_Bot_MD Preview"/>
-</p>
----
-
-👑 Developer Info
-
-Developer: Amon
-
-Channel: Benzo_Bot_MD Official
-
-GitHub: spark-x1
-
-
+### Step 3: Deploy Bot
+<div align="center">
+  <a href="https://dashboard.katabump.com/auth/login#d6b7d6" target="_blank">
+    <img src="https://img.shields.io/badge/Deploy-Katabump-D6B7D6?style=for-the-badge&logo=server&logoColor=black" alt="Deploy on Katabump"/>
+  </a>
+</div>
 
 ---
 
-🛠️ Credits
+## ⚙️ Features
 
-Session Generator: OfficialKango
+<div align="center">
+<img src="https://img.shields.io/badge/🤖_AI_Powered-FF6B6B?style=flat-square" />
+<img src="https://img.shields.io/badge/🖼️_Media_Processing-4ECDC4?style=flat-square" />
+<img src="https://img.shields.io/badge/👥_Group_Management-45B7D1?style=flat-square" />
+<img src="https://img.shields.io/badge/⚡_Fast_Response-96CEB4?style=flat-square" />
+</div>
 
-Maintainer: Amon
-
-
-
----
-
-✨ Badges
-
-
-
-
-
-
+- **Group Management** - Advanced moderation tools
+- **Media Processing** - Sticker creation, image editing
+- **AI Features** - Smart responses and automation
+- **Games & Entertainment** - Interactive group activities
+- **Utility Tools** - Weather, calculator, and more
+- **Anti-Spam Protection** - Automated safety features
 
 ---
 
-⭐ Powered by Amon | #BenzoBotMD | #WhatsAppBot
+## 🛠️ Installation
+
+```bash
+# Clone repository
+git clone https://github.com/spark-x1/Benzo-MD.git
+cd Benzo-MD
+
+# Install dependencies
+npm install
+
+# Start the bot
+node index.js
