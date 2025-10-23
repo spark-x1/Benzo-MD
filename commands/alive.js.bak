@@ -1,0 +1,133 @@
+const settings = require("../settings");
+
+const os = require("os");
+
+const path = require("path");
+
+const fs = require("fs");
+
+// Uptime formatter
+
+function runtime(seconds) {
+
+    seconds = Number(seconds);
+
+    const d = Math.floor(seconds / (3600 * 24));
+
+    const h = Math.floor((seconds % (3600 * 24)) / 3600);
+
+    const m = Math.floor((seconds % 3600) / 60);
+
+    const s = Math.floor(seconds % 60);
+
+    return `${d}d ${h}h ${m}m ${s}s`;
+
+}
+
+async function aliveCommand(sock, chatId, message) {
+
+    try {
+
+        // ❤️ Reaction when command triggered
+
+        await sock.sendMessage(chatId, {
+
+            react: {
+
+                text: "❤️",
+
+                key: message.key
+
+            }
+
+        });
+
+        const userName = message.pushName || "User";
+
+        const botUptime = runtime(process.uptime());
+
+        const totalMemory = (os.totalmem() / (1024 * 1024 * 1024)).toFixed(2);
+
+        const usedMemory = (process.memoryUsage().heapUsed / (1024 * 1024)).toFixed(2);
+
+        const host = os.platform();
+
+        const aliveMessage =
+
+            `👋 \`\`\` Hello ${userName}, I'm alive now \`\`\`\n\n` +
+
+            `_*This ${settings.botName || "Benzo Bot"} WhatsApp Bot is made for your easy use. This bot is currently active🪄*_\n\n` +
+
+            `> *Version:* ${settings.version}\n` +
+
+            `> *Memory:* ${usedMemory}MB / ${totalMemory}GB\n` +
+
+            `> *Runtime:* ${botUptime}\n` +
+
+            `> *Host:* ${host}\n\n` +
+
+            `*${settings.botName || "Benzo Bot"} Online*\n\n` +
+
+            `*📢Follow our channel:* https://whatsapp.com/channel/0029Vb6d5ScLdQehdD5ird3l\n\n` +
+
+            `> ρσωєяє∂ ву ${settings.ownerName || "Amon"}`;
+
+        // Resolve the local image path
+
+        const imagePath = path.resolve(__dirname, "../assets/bot.image.jpg");
+
+        // Check if image exists before trying to send
+
+        if (fs.existsSync(imagePath)) {
+
+            // Send local image
+
+            await sock.sendMessage(chatId, {
+
+                image: fs.readFileSync(imagePath),
+
+                caption: aliveMessage
+
+            }, { quoted: message });
+
+        } else {
+
+            // If image doesn't exist, send text only
+
+            console.warn("Image not found, sending text only:", imagePath);
+
+            await sock.sendMessage(chatId, {
+
+                text: aliveMessage
+
+            }, { quoted: message });
+
+        }
+
+    } catch (error) {
+
+        console.error("Error in alive command:", error);
+
+        // Create fallback message inside catch block to avoid reference error
+
+        const fallbackMessage = `❌ An error occurred while processing the alive command.\n\nBot is still running though! 🚀`;
+
+        // Send fallback text
+
+        await sock.sendMessage(chatId, {
+
+            text: fallbackMessage
+
+        }, { quoted: message });
+
+        await sock.sendMessage(chatId, {
+
+            react: { text: "⚠️", key: message.key }
+
+        });
+
+    }
+
+}
+
+module.exports = aliveCommand;
