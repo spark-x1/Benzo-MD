@@ -4,161 +4,235 @@ const path = require('path');
 
 async function helpCommand(sock, chatId, message) {
     const helpMessage = `
-╭─❖ 〔 *${settings.botName || '🩶 𝙱𝙴𝙽𝚉𝙾𝙱𝙾𝚃 𝙼𝙳* 〕
-│ 👤 ᴏᴡɴᴇʀ      : ${settings.botOwner || 'Amon'}
-│ ⚙️ ᴠᴇʀsɪᴏɴ    : ${settings.version || '3.0.0'}
-│ ⏰ ᴛɪᴍᴇ        : ${new Date().toLocaleTimeString()}
-│ 📅 ᴅᴀᴛᴇ        : ${new Date().toLocaleDateString()}
-│ 🛠️ ᴍᴏᴅᴇ       : [ public ]
-│ 🚀 ᴘʀᴇғɪx     : [ . ]
-╰─❖━━━━━━━━━━━━━━━╯
+╔═══════════════════╗
+   *🤖 ${settings.botName || 'BenzoBot-MD'}*  
+   Version: *${settings.version || '3.0.0'}*
+   by ${settings.botOwner || 'Amon'}
+╚═══════════════════╝
 
-╭─✦〔 🌐 *GENERAL* 〕
-│ ➤ .help / .menu
-│ ➤ .ping
-│ ➤ .alive
-│ ➤ .tts <text>
-│ ➤ .owner
-│ ➤ .joke
-│ ➤ .quote
-│ ➤ .fact
-│ ➤ .weather <city>
-│ ➤ .news
-│ ➤ .attp <text>
-│ ➤ .lyrics <song_title>
-│ ➤ .8ball <question>
-│ ➤ .groupinfo
-│ ➤ .admins
-│ ➤ .vv
-│ ➤ .trt <text> <lang>
-│ ➤ .ss <link>
-│ ➤ .jid
-│ ➤ .url
-╰─✦
+*Available Commands:*
 
-╭─✦〔 👮‍♂️ *ADMIN* 〕
-│ ➤ .ban @user
-│ ➤ .promote @user
-│ ➤ .demote @user
-│ ➤ .mute / .unmute
-│ ➤ .delete / .del
-│ ➤ .kick @user
-│ ➤ .warn / .warnings
-│ ➤ .antilink / .antibadword
-│ ➤ .clear
-│ ➤ .tag / .tagall / .hidetag
-│ ➤ .resetlink
-│ ➤ .welcome / .goodbye
-│ ➤ .setgdesc / .setgname / .setgpp
-╰─✦
+╔═══════════════════╗
+🌐 *General Commands*:
+║ ➤ .help or .menu
+║ ➤ .ping
+║ ➤ .alive
+║ ➤ .tts <text>
+║ ➤ .owner
+║ ➤ .joke
+║ ➤ .quote
+║ ➤ .fact
+║ ➤ .weather <city>
+║ ➤ .news
+║ ➤ .attp <text>
+║ ➤ .lyrics <song_title>
+║ ➤ .8ball <question>
+║ ➤ .groupinfo
+║ ➤ .staff or .admins 
+║ ➤ .vv
+║ ➤ .trt <text> <lang>
+║ ➤ .ss <link>
+║ ➤ .jid
+║ ➤ .url
+╚═══════════════════╝ 
 
-╭─✦〔 🔒 *OWNER* 〕
-│ ➤ .mode <public/private>
-│ ➤ .clearsession
-│ ➤ .antidelete
-│ ➤ .cleartmp
-│ ➤ .update
-│ ➤ .settings
-│ ➤ .setpp
-│ ➤ .autoreact / .autostatus / .autotyping
-│ ➤ .autoread / .anticall
-│ ➤ .pmblocker / .pmblocker setmsg
-│ ➤ .mention / .setmention
-╰─✦
+╔═══════════════════╗
+👮‍♂️ *Admin Commands*:
+║ ➤ .ban @user
+║ ➤ .promote @user
+║ ➤ .demote @user
+║ ➤ .mute <minutes>
+║ ➤ .unmute
+║ ➤ .delete or .del
+║ ➤ .kick @user
+║ ➤ .warnings @user
+║ ➤ .warn @user
+║ ➤ .antilink
+║ ➤ .antibadword
+║ ➤ .clear
+║ ➤ .tag <message>
+║ ➤ .tagall
+║ ➤ .tagnotadmin
+║ ➤ .hidetag <message>
+║ ➤ .chatbot
+║ ➤ .resetlink
+║ ➤ .antitag <on/off>
+║ ➤ .welcome <on/off>
+║ ➤ .goodbye <on/off>
+║ ➤ .setgdesc <description>
+║ ➤ .setgname <new name>
+║ ➤ .setgpp (reply to image)
+╚═══════════════════╝
 
-╭─✦〔 🎨 *IMAGE / STICKER* 〕
-│ ➤ .blur
-│ ➤ .simage
-│ ➤ .sticker
-│ ➤ .removebg
-│ ➤ .remini
-│ ➤ .crop
-│ ➤ .tgsticker
-│ ➤ .meme
-│ ➤ .take
-│ ➤ .emojimix
-│ ➤ .igs / .igsc
-╰─✦
+╔═══════════════════╗
+🔒 *Owner Commands*:
+║ ➤ .mode <public/private>
+║ ➤ .clearsession
+║ ➤ .antidelete
+║ ➤ .cleartmp
+║ ➤ .update
+║ ➤ .settings
+║ ➤ .setpp <reply to image>
+║ ➤ .autoreact <on/off>
+║ ➤ .autostatus <on/off>
+║ ➤ .autostatus react <on/off>
+║ ➤ .autotyping <on/off>
+║ ➤ .autoread <on/off>
+║ ➤ .anticall <on/off>
+║ ➤ .pmblocker <on/off/status>
+║ ➤ .pmblocker setmsg <text>
+║ ➤ .setmention <reply to msg>
+║ ➤ .mention <on/off>
+╚═══════════════════╝
 
-╭─✦〔 🎮 *GAMES* 〕
-│ ➤ .tictactoe
-│ ➤ .hangman
-│ ➤ .guess
-│ ➤ .trivia
-│ ➤ .answer
-│ ➤ .truth / .dare
-╰─✦
+╔═══════════════════╗
+🎨 *Image/Sticker Commands*:
+║ ➤ .blur <image>
+║ ➤ .simage <reply to sticker>
+║ ➤ .sticker <reply to image>
+║ ➤ .removebg
+║ ➤ .remini
+║ ➤ .crop <reply to image>
+║ ➤ .tgsticker <Link>
+║ ➤ .meme
+║ ➤ .take <packname> 
+║ ➤ .emojimix <emj1>+<emj2>
+║ ➤ .igs <insta link>
+║ ➤ .igsc <insta link>
+╚═══════════════════╝  
 
-╭─✦〔 🤖 *AI MENU* 〕
-│ ➤ .gpt
-│ ➤ .gemini
-│ ➤ .imagine
-│ ➤ .flux
-│ ➤ .sora
-╰─✦
+╔═══════════════════╗
+🖼️ *Pies Commands*:
+║ ➤ .pies <country>
+║ ➤ .china 
+║ ➤ .indonesia 
+║ ➤ .japan 
+║ ➤ .korea 
+║ ➤ .hijab
+╚═══════════════════╝
 
-╭─✦〔 🎯 *FUN* 〕
-│ ➤ .compliment
-│ ➤ .insult
-│ ➤ .flirt
-│ ➤ .shayari
-│ ➤ .goodnight
-│ ➤ .roseday
-│ ➤ .character
-│ ➤ .ship
-│ ➤ .simp
-│ ➤ .stupid
-╰─✦
+╔═══════════════════╗
+🎮 *Game Commands*:
+║ ➤ .tictactoe @user
+║ ➤ .hangman
+║ ➤ .guess <letter>
+║ ➤ .trivia
+║ ➤ .answer <answer>
+║ ➤ .truth
+║ ➤ .dare
+╚═══════════════════╝
 
-╭─✦〔 🔤 *TEXTMAKER* 〕
-│ ➤ .metallic
-│ ➤ .ice
-│ ➤ .snow
-│ ➤ .impressive
-│ ➤ .matrix
-│ ➤ .light
-│ ➤ .neon
-│ ➤ .devil
-│ ➤ .purple
-│ ➤ .thunder
-│ ➤ .leaves
-│ ➤ .1917
-│ ➤ .arena
-│ ➤ .hacker
-│ ➤ .sand
-│ ➤ .blackpink
-│ ➤ .glitch
-│ ➤ .fire
-╰─✦
+╔═══════════════════╗
+🤖 *AI Commands*:
+║ ➤ .gpt <question>
+║ ➤ .gemini <question>
+║ ➤ .imagine <prompt>
+║ ➤ .flux <prompt>
+║ ➤ .sora <prompt>
+╚═══════════════════╝
 
-╭─✦〔 📥 *DOWNLOADERS* 〕
-│ ➤ .play / .song / .video
-│ ➤ .spotify
-│ ➤ .instagram
-│ ➤ .facebook
-│ ➤ .tiktok
-│ ➤ .ytmp4
-╰─✦
+╔═══════════════════╗
+🎯 *Fun Commands*:
+║ ➤ .compliment @user
+║ ➤ .insult @user
+║ ➤ .flirt 
+║ ➤ .shayari
+║ ➤ .goodnight
+║ ➤ .roseday
+║ ➤ .character @user
+║ ➤ .wasted @user
+║ ➤ .ship @user
+║ ➤ .simp @user
+║ ➤ .stupid @user [text]
+╚═══════════════════╝
 
-╭─✦〔 🖼️ *ANIME MENU* 〕
-│ ➤ .neko / .waifu / .loli
-│ ➤ .nom / .poke / .cry / .kiss
-│ ➤ .pat / .hug / .wink / .facepalm
-╰─✦
+╔═══════════════════╗
+🔤 *Textmaker*:
+║ ➤ .metallic <text>
+║ ➤ .ice <text>
+║ ➤ .snow <text>
+║ ➤ .impressive <text>
+║ ➤ .matrix <text>
+║ ➤ .light <text>
+║ ➤ .neon <text>
+║ ➤ .devil <text>
+║ ➤ .purple <text>
+║ ➤ .thunder <text>
+║ ➤ .leaves <text>
+║ ➤ .1917 <text>
+║ ➤ .arena <text>
+║ ➤ .hacker <text>
+║ ➤ .sand <text>
+║ ➤ .blackpink <text>
+║ ➤ .glitch <text>
+║ ➤ .fire <text>
+╚═══════════════════╝
 
-╭─✦〔 💻 *GITHUB* 〕
-│ ➤ .git / .github / .script / .repo
-╰─✦
+╔═══════════════════╗
+📥 *Downloader*:
+║ ➤ .play <song_name>
+║ ➤ .song <song_name>
+║ ➤ .spotify <query>
+║ ➤ .instagram <link>
+║ ➤ .facebook <link>
+║ ➤ .tiktok <link>
+║ ➤ .video <song name>
+║ ➤ .ytmp4 <Link>
+╚═══════════════════╝
 
-> ✦ *© Powered by ${settings.botName || 'BenzoBot MD'}* ✦
-`;
+╔═══════════════════╗
+🧩 *MISC*:
+║ ➤ .heart
+║ ➤ .horny
+║ ➤ .circle
+║ ➤ .lgbt
+║ ➤ .lolice
+║ ➤ .its-so-stupid
+║ ➤ .namecard 
+║ ➤ .oogway
+║ ➤ .tweet
+║ ➤ .ytcomment 
+║ ➤ .comrade 
+║ ➤ .gay 
+║ ➤ .glass 
+║ ➤ .jail 
+║ ➤ .passed 
+║ ➤ .triggered
+╚═══════════════════╝
+
+╔═══════════════════╗
+🖼️ *ANIME*:
+║ ➤ .neko
+║ ➤ .waifu
+║ ➤ .loli
+║ ➤ .nom 
+║ ➤ .poke 
+║ ➤ .cry 
+║ ➤ .kiss 
+║ ➤ .pat 
+║ ➤ .hug 
+║ ➤ .wink 
+║ ➤ .facepalm 
+╚═══════════════════╝
+
+╔═══════════════════╗
+💻 *Github Commands:*
+║ ➤ .git
+║ ➤ .github
+║ ➤ .sc
+║ ➤ .script
+║ ➤ .repo
+╚═══════════════════╝
+
+Join our channel for updates:`;
 
     try {
         const imagePath = path.join(__dirname, '../assets/bot_image.jpg');
         const audioPath = path.join(__dirname, '../assets/menu.mp3');
-
+        
         if (fs.existsSync(imagePath)) {
             const imageBuffer = fs.readFileSync(imagePath);
+            
             await sock.sendMessage(chatId, {
                 image: imageBuffer,
                 caption: helpMessage,
@@ -171,17 +245,53 @@ async function helpCommand(sock, chatId, message) {
                         serverMessageId: -1
                     }
                 }
-            }, { quoted: message });
+            },{ quoted: message });
         } else {
-            await sock.sendMessage(chatId, { text: helpMessage });
+            console.error('Bot image not found at:', imagePath);
+            await sock.sendMessage(chatId, { 
+                text: helpMessage,
+                contextInfo: {
+                    forwardingScore: 1,
+                    isForwarded: true,
+                    forwardedNewsletterMessageInfo: {
+                        newsletterJid: '120363422423159626@newsletter',
+                        newsletterName: 'BenzoBot MD by Amon',
+                        serverMessageId: -1
+                    } 
+                }
+            });
         }
 
+        // Send audio immediately after image with better error handling
         if (fs.existsSync(audioPath)) {
-            await sock.sendMessage(chatId, {
-                audio: fs.readFileSync(audioPath),
-                mimetype: 'audio/mpeg',
-                ptt: false
-            });
+            const stats = fs.statSync(audioPath);
+            const fileSizeInMB = stats.size / (1024 * 1024);
+            
+            // Check if file is too large or might be too long
+            if (fileSizeInMB > 16) { // WhatsApp limit is around 16MB
+                console.warn('Audio file too large:', fileSizeInMB.toFixed(2), 'MB');
+                await sock.sendMessage(chatId, {
+                    text: '🎵 *Audio Guide* (File too large for WhatsApp)'
+                });
+            } else {
+                try {
+                    await sock.sendMessage(chatId, {
+                        audio: fs.readFileSync(audioPath),  
+                        mimetype: 'audio/mpeg',  
+                        ptt: false // Changed to false - send as normal audio instead of voice note
+                    });
+                } catch (audioError) {
+                    console.error('Error sending audio:', audioError);
+                    // Try sending as document if audio fails
+                    await sock.sendMessage(chatId, {
+                        document: fs.readFileSync(audioPath),
+                        mimetype: 'audio/mpeg',
+                        fileName: 'menu_guide.mp3'
+                    });
+                }
+            }
+        } else {
+            console.error('Audio file not found at:', audioPath);
         }
 
     } catch (error) {
