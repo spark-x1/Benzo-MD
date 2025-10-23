@@ -71,7 +71,7 @@
 
 <div align="center">
 
-Made with ❤️ by Professor | Spark-X1
+Made with ❤️ by Amon | Spark-X1
 
 <img src="https://img.shields.io/badge/⭐_Star_this_Repository-yellow?style=for-the-badge&logo=github" />
 
