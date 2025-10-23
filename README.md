@@ -83,3 +83,11 @@ npm install
 
 # Start the bot
 node index.js
+
+<div align="center">
+
+Made with ❤️ by Professor | Spark-X1
+
+<img src="https://img.shields.io/badge/⭐_Star_this_Repository-yellow?style=for-the-badge&logo=github" />
+
+</div>
