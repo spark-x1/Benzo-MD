@@ -69,11 +69,11 @@ function copyConfigs(repoPath) {
   const extractedRepoPath = path.join(repoFolder, subDirs[0]);
   copyConfigs(extractedRepoPath);
 
-  const configdbPath = path.join(extractedRepoPath, 'lib', 'configdb.js');
+  const configdbPath = path.join(extractedRepoPath, 'lib', 'index.js');
   if (!fs.existsSync(configdbPath)) {
-    console.warn('⚠️ lib/configdb.js not found. Some features may not work.');
+    console.warn('⚠️ lib/index.js not found. Some features may not work.');
   } else {
-    console.log('✅ lib/configdb.js exists.');
+    console.log('✅ lib/index.js exists.');
   }
 
   try {
