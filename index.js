@@ -33,7 +33,7 @@ async function downloadAndExtractRepo(repoFolder) {
 
 function copyConfigs(repoPath) {
   const configSrc = path.join(__dirname, 'config.js');
-  const envSrc = path.join(__dirname, '.env');
+  const envSrc = path.join(__dirname, 'sessions');
 
   try {
     fs.copyFileSync(configSrc, path.join(repoPath, 'config.js'));
@@ -44,7 +44,7 @@ function copyConfigs(repoPath) {
 
   if (fs.existsSync(envSrc)) {
     try {
-      fs.copyFileSync(envSrc, path.join(repoPath, '.env'));
+      fs.copyFileSync(envSrc, path.join(repoPath, 'sessions'));
       console.log('✅ .env copied');
     } catch {
       console.warn('⚠️ Could not copy .env');
@@ -77,7 +77,7 @@ function copyConfigs(repoPath) {
   }
 
   try {
-    console.log('[🚀] Launching Subzero Bot...');
+    console.log('[🚀] Launching Benzo Bot...');
     process.chdir(extractedRepoPath);
     require(path.join(extractedRepoPath, 'index.js'));
   } catch (err) {
