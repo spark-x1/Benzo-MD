@@ -33,7 +33,7 @@ async function downloadAndExtractRepo(repoFolder) {
 
 function copyConfigs(repoPath) {
   const configSrc = path.join(__dirname, 'config.js');
-  const envSrc = path.join(__dirname, 'session');
+  const envSrc = path.join(__dirname, 'settings.js');
 
   try {
     fs.copyFileSync(configSrc, path.join(repoPath, 'config.js'));
@@ -44,7 +44,7 @@ function copyConfigs(repoPath) {
 
   if (fs.existsSync(envSrc)) {
     try {
-      fs.copyFileSync(envSrc, path.join(repoPath, 'session'));
+      fs.copyFileSync(envSrc, path.join(repoPath, 'settings.js'));
       console.log('✅ .env copied');
     } catch {
       console.warn('⚠️ Could not copy .env');
